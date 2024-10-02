@@ -15,9 +15,17 @@
 </head>
 <body>
     <nav>
-        <a href="/">🏠</a> |
-        <a href="/about">😃</a> |
-        <a href="/posts">📰</a>
+        <a href="/">
+            <span role="img" arial-label="Home">🏠</span>
+        </a> |
+
+        <a href="/about">
+            <span role="img" arial-label="About">😃</span>   
+        </a> |
+        
+        <a href="{% url 'posts:list' %}">
+            <span role="img" arial-label="Posts">📰</span>     
+        </a>
 
     </nav>
     <main>
