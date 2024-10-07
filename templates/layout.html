@@ -29,7 +29,10 @@
 
         <a href="{% url 'users:register' %}">
             <span role="img" arial-label="User Registration" title="User registration">🚀</span>     
-        </a>
+        </a> |
+        <a href="{% url 'users:login' %}">
+            <span role="img" arial-label="User Login" title="User Login">🔐</span>     
+        </a> |
     </nav>
     <main>
         {% block content %}
