@@ -27,12 +27,24 @@
             <span role="img" arial-label="Posts" title="Posts">📰</span>     
         </a> |
 
-        <a href="{% url 'users:register' %}">
-            <span role="img" arial-label="User Registration" title="User registration">🚀</span>     
-        </a> |
-        <a href="{% url 'users:login' %}">
-            <span role="img" arial-label="User Login" title="User Login">🔐</span>     
-        </a> |
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'posts:new-post' %}">
+                <span role="img" arial-label="New Post" title="New Post">🆕</span>     
+            </a> |
+            <form class="logout" action="{% url 'users:logout' %}" method="post">
+                {% csrf_token %}
+                <button class="logout-button" arial-label="User Logout" title="User Logout">🖐️</button>
+            </form>
+        {% else %}
+            <a href="{% url 'users:register' %}">
+                <span role="img" arial-label="User Registration" title="User registration">🚀</span>     
+            </a> |
+            <a href="{% url 'users:login' %}">
+                <span role="img" arial-label="User Login" title="User Login">🔐</span>     
+            </a> 
+        {% endif %}
+
     </nav>
     <main>
         {% block content %}
